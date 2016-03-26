@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/����gʽ/" style="font-size: 10px;">����ģʽ</a>
+						<a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -373,112 +373,6 @@
       
       
       
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS开发" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/26/iOS开发/" class="article-date">
-  	<time datetime="2016-03-26T02:30:56.714Z" itemprop="datePublished">2016-03-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/iOS开发/">iOS �����е� Self-Manager ģʽ</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#iOS �����е� Self-Manager ģʽ</p>
-<p>@(iOS)</p>
-<blockquote>
-<p>��Դ�� <a href="http://blog.sunnyxx.com/" target="_blank" rel="external">http://blog.sunnyxx.com/</a>  ���͡�</p>
-</blockquote>
-<p><strong>��ĳ����ͼ������Ȩ���������Լ����������Լ����¼�</strong>��</p>
-<p>��һ�����ӣ�����չʾͷ������ͼ</p>
-<p><img src="./1458787599163.png" alt="Alt text"></p>
-<p><strong>����ְ��������</strong></p>
-<ul>
-<li>1��ͨ�������� URL�����ز�չʾͷ��ͼƬ</li>
-<li>2����ʾһЩ������Ϣ��������V�ı�־</li>
-<li>3�����û�����ͷ�����¼����ݸ������� View Controller ��ת���û���Ϣҳ��</li>
-</ul>
-<p>�����������ģ�</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@interface FDAvatarView : UIView</span><br><span class="line">// ���� VIPInfo ��ĳ�� Entity</span><br><span class="line">- (void)configureWithAvatarURL:(NSURL *)URL VIPInfo:(id)info tapped:(void (^)(void))block;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>ʹ�������ؼ�����ֻҪ���ø÷�������������ok������ʱ���и����⣺</p>
-<ul>
-<li>1�����������ӣ�<code>UITableViewCell</code>��������������������cell����֪���Լ���<code>ViewController</code>��˭�����Ǻ��¼������ϴ���ֱ�����ҵ��Լ���<code>navigation</code>��Ȼ����ת����һ�����档</li>
-<li>2������<code>FDAvatarView</code>������<code>����</code>���棬������Ϊһ�µĻ����������������Ͷ�Ҫ�������¼�������������ֻ������һ�㴫���¼���<code>�м���</code>��</li>
-</ul>
-<p>Ϊ�����������⣬����Ҫ������ <code>View ��Ȩ</code>�������Լ� <code>Handle</code> �Լ����¼���Ҳ���� <code>Self-Managed</code>��Ϊ�˲��ƻ� View ��<code>������</code>���ȽϺõ�ʵ������ <code>Category</code> ��ʵ�֣�</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface FDAvatarView (FDAvatarViewSelfManager)</span><br><span class="line">- (void)selfManagedConfigureWithAvatarURL:(NSURL *)URL VIPInfo:(id)info uid:(NSString *)uid;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>ʵ�֣�</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@implementation FDAvatarView (FDAvatarViewSelfManager)</span><br><span class="line">// Ϊ��һ��ҳ���Ĵ��������˸� UID ����</span><br><span class="line">- (void)selfManagedConfigureWithAvatarURL:(NSURL *)URL VIPInfo:(id)info UID:(NSString *)UID &#123;</span><br><span class="line">    [self configureWithAvatarURL:URL VIPInfo:info tapped:^&#123;</span><br><span class="line">    	// ���� App �ṹ�� Root -&gt; TabBar -&gt; Navigation -&gt; ViewController</span><br><span class="line">        UITabBarController *tabBarControler = (id)[UIApplication.sharedApplication.delegate.window.rootViewController;</span><br><span class="line">        UINavigationController *navigationController = tabBarControler.selectedViewController;</span><br><span class="line">        // �����û���Ϣ View Controller</span><br><span class="line">        FDUserProfileViewController *profileViewController = [FDUserProfileViewController viewControllerWithUID:UID];</span><br><span class="line">        [navigationController pushViewController:profileViewController animated:YES];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>�����õ������� <code>AOP</code>(��������) ��˼·�������˶� App �㼶�����ϣ�������ֻҪ�����˸÷����ͻ�ֱ����ת��<code>�û�����</code>���������������������Ϸ�ʽ���׵Ļ���Ҳ����<code>��װ</code>��ȫ�ַ���ȥȡ����ǰ������ <code>Navigation Controller</code>��<br>������FDAvatarView �ĵ�����ֻ��Ҫ�������Σ����������Լ�ȫ�ܸ㶨�ˣ���ʹ App �ںܶദ����ͷ�����߼�����Ҳֻ��һ�ݡ�</p>
-</blockquote>
-<p><strong>�������ٿ�һ�����ӣ�</strong><br><img src="./1458789163992.png" alt="Alt text"><br>�������޵İ�ť�������м���ְ����</p>
-<p>��ʾ���еĵ�����<br>������ť��ִ��һ��С������������ +1��ͬʱ��������������<br>���Ѿ����ޣ�����ִ�з�������<br>��������������ʧ�ܣ������˳ɵ���ǰ��״̬</p>
-<p><img src="./1458789186318.png" alt="Alt text"><br>�����ؼ��� ���� �������Ƴ�������</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface FDLikeButton : UIButton</span><br><span class="line">- (void)configureLikeStatus:(BOOL)likeOrNot count:(NSInteger)count animated:(BOOL)animated;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>��Ϊ�̳��� <code>UIButton</code>�������ⲿ����ֱ�������� <code>action</code>���Ͳ����� tappedHandler �Ĳ����ˡ�<code>�ⲿֱ��</code>�ڵ����¼�����Ҫ�����������÷��������ŵ��޶����������ŷ���һ����������������������ʧ�ܣ������ٴε������� API ���޶����汾�ع�״̬��</p>
-<blockquote>
-<p><code>�и�����</code>��������������һ����<code>��������</code>��<code>�¼������߼���ͬ</code>��������ȴ�ֲ��ڸ���ҳ���У����Ǹ����� View ���� <code>Self-Managed</code> ģʽ�� <code>Category</code>��</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface FDLikeButton (FDLikeButtonSelfManager)</span><br><span class="line">- (void)selfManagedConfigureWithLikeStatus:(BOOL)likeOrNot count:(NSInteger)count;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@implementation FDLikeButton (FDLikeButtonSelfManager)</span><br><span class="line">- (void)selfManagedConfigureWithLikeStatus:(BOOL)likeOrNot count:(NSInteger)count &#123;</span><br><span class="line">    [self configureLikeStatus:likeOrNot count:count animated:NO];</span><br><span class="line">    [self addTarget:self action:@selector(likeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">&#125;</span><br><span class="line">- (void)likeButtonTapped:(id)sender &#123;</span><br><span class="line">    // +1 or -1 with animation</span><br><span class="line">    // Network request ^(NSError *error) &#123;</span><br><span class="line">    //     if (error) &#123;</span><br><span class="line">    //         rollback</span><br><span class="line">    //     &#125;</span><br><span class="line">    // &#125;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>�����ϣ�<code>Self-Manager</code> ģʽ��û���ƻ�ԭ�е� MVC �ṹ���������������е� View ��Ȼ����<code>������</code>����ҵ���߼���<code>���ó�����</code>��ʹ�� Category �ķ�ʽ��Ӧ��д�� ViewController �еĴ����ƶ��� View ���ļ��У��ù���<code>���ӵ��ھ�</code>��</p>
-</blockquote>
-<p>�����ĸ��ӶȲ����������ֿ��ŵ�����ģʽ�����٣���������ֻ�Ƕ�<code>���Ӷȵ��з�</code>��<code>����</code>������</p>
-<ul>
-<li>1����<code>һ����</code>���ĵĴ�������<code>��С��</code>����ô���ĵĴ��롣</li>
-<li>2���ö��ĵĴ���ֻ��<code>һ���ط�����</code>��</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/����gʽ/">����ģʽ</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/IOS����/">IOS����</a>
-	</div>
-
 
       
       <div class="clearfix"></div>
