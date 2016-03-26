@@ -4,17 +4,53 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>L4H&#39; Blog</title>
+  <title>iOS 开发中的 Self-Manager 模式 | L4H&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="����iOS������ţ������һöӦ����">
-<meta property="og:type" content="website">
-<meta property="og:title" content="L4H' Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="给某个视图更大的权力，让它自己负责处理自己的事件。
+有一个例子：负责展示头像的视图
+
+它的职责包括：
+
+1、通过传入的 URL，加载并展示头像图片
+2、显示一些附属信息，比如大V的标志
+3、将用户点击头像的事件传递给外层的 View Controller 跳转到用户信息页面
+
+代码是这样的：
+1234@interface FDAvatarView : UIView// 假设 VIPInfo 是某个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 开发中的 Self-Manager 模式">
+<meta property="og:url" content="http://yoursite.com/2016/03/26/iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式/index.html">
 <meta property="og:site_name" content="L4H' Blog">
-<meta property="og:description" content="����iOS������ţ������һöӦ����">
+<meta property="og:description" content="给某个视图更大的权力，让它自己负责处理自己的事件。
+有一个例子：负责展示头像的视图
+
+它的职责包括：
+
+1、通过传入的 URL，加载并展示头像图片
+2、显示一些附属信息，比如大V的标志
+3、将用户点击头像的事件传递给外层的 View Controller 跳转到用户信息页面
+
+代码是这样的：
+1234@interface FDAvatarView : UIView// 假设 VIPInfo 是某个">
+<meta property="og:image" content="http://yoursite.com/./1458787599163.png">
+<meta property="og:image" content="http://yoursite.com/source/img/1.png">
+<meta property="og:image" content="http://yoursite.com/./1458789163992.png">
+<meta property="og:image" content="http://yoursite.com/./1458789186318.png">
+<meta property="og:updated_time" content="2016-03-26T08:06:14.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="L4H' Blog">
-<meta name="twitter:description" content="����iOS������ţ������һöӦ����">
+<meta name="twitter:title" content="iOS 开发中的 Self-Manager 模式">
+<meta name="twitter:description" content="给某个视图更大的权力，让它自己负责处理自己的事件。
+有一个例子：负责展示头像的视图
+
+它的职责包括：
+
+1、通过传入的 URL，加载并展示头像图片
+2、显示一些附属信息，比如大V的标志
+3、将用户点击头像的事件传递给外层的 View Controller 跳转到用户信息页面
+
+代码是这样的：
+1234@interface FDAvatarView : UIView// 假设 VIPInfo 是某个">
+<meta name="twitter:image" content="http://yoursite.com/./1458787599163.png">
   
     <link rel="alternative" href="/atom.xml" title="L4H&#39; Blog" type="application/atom+xml">
   
@@ -196,9 +232,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/26/iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式/" class="article-date">
@@ -214,12 +248,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式/">iOS 开发中的 Self-Manager 模式</a>
+    <h1 class="article-title" itemprop="name">
+      iOS 开发中的 Self-Manager 模式
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -272,140 +321,68 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/26/iOS 开发中的 Self-Manager 模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS 开发中的 Self-Manager 模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-iOS 开发中的 Self-Manager 模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/26/iOS 开发中的 Self-Manager 模式/" class="article-date">
-  	<time datetime="2016-03-26T08:01:01.140Z" itemprop="datePublished">2016-03-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/iOS 开发中的 Self-Manager 模式/">iOS 开发中的 Self-Manager 模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>给某个视图更大的权力，让它自己负责处理自己的事件</strong>。</p>
-<p>有一个例子：负责展示头像的视图</p>
-<p><img src="./1458787599163.png" alt="Alt text"><br>Hexo\source_posts\iOS 开发中的 Self-Manager 模式\iOS 开发中的 Self-Manager 模式<br><img src="iOS 开发中的 Self-Manager 模式/1.jpg" alt="1"><br><strong>它的职责包括：</strong></p>
-<ul>
-<li>1、通过传入的 URL，加载并展示头像图片</li>
-<li>2、显示一些附属信息，比如大V的标志</li>
-<li>3、将用户点击头像的事件传递给外层的 View Controller 跳转到用户信息页面</li>
-</ul>
-<p>代码是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@interface FDAvatarView : UIView</span><br><span class="line">// 假设 VIPInfo 是某个 Entity</span><br><span class="line">- (void)configureWithAvatarURL:(NSURL *)URL VIPInfo:(id)info tapped:(void (^)(void))block;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>使用这个控件的人只要调用该方法传入参数就ok。但此时会有个问题：</p>
-<ul>
-<li>1、上面的例子，<code>UITableViewCell</code>会调用这个方法，但是cell并不知道自己的<code>ViewController</code>是谁，于是乎事件得往上传，直到能找到自己的<code>navigation</code>，然后跳转到下一个界面。</li>
-<li>2、这个<code>FDAvatarView</code>出现在<code>多个</code>界面，而且行为一致的话，这样多个界面就都要处理该事件。还会多出来只是向上一层传递事件的<code>中间人</code>。</li>
-</ul>
-<p>为解决这个问题，就需要给这个 <code>View 放权</code>，让其自己 <code>Handle</code> 自己的事件，也就是 <code>Self-Managed</code>，为了不破坏 View 的<code>纯洁性</code>，比较好的实践是在 <code>Category</code> 中实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface FDAvatarView (FDAvatarViewSelfManager)</span><br><span class="line">- (void)selfManagedConfigureWithAvatarURL:(NSURL *)URL VIPInfo:(id)info uid:(NSString *)uid;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@implementation FDAvatarView (FDAvatarViewSelfManager)</span><br><span class="line">// 为后一个页面的创建增加了个 UID 参数</span><br><span class="line">- (void)selfManagedConfigureWithAvatarURL:(NSURL *)URL VIPInfo:(id)info UID:(NSString *)UID &#123;</span><br><span class="line">    [self configureWithAvatarURL:URL VIPInfo:info tapped:^&#123;</span><br><span class="line">    	// 假设 App 结构是 Root -&gt; TabBar -&gt; Navigation -&gt; ViewController</span><br><span class="line">        UITabBarController *tabBarControler = (id)[UIApplication.sharedApplication.delegate.window.rootViewController;</span><br><span class="line">        UINavigationController *navigationController = tabBarControler.selectedViewController;</span><br><span class="line">        // 创建用户信息 View Controller</span><br><span class="line">        FDUserProfileViewController *profileViewController = [FDUserProfileViewController viewControllerWithUID:UID];</span><br><span class="line">        [navigationController pushViewController:profileViewController animated:YES];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里用到了类似 <code>AOP</code>(面向对象) 的思路，添加了对 App 层级的耦合（调用者只要调用了该方法就会直接跳转到<code>用户界面</code>），如果觉得这样的耦合方式不妥的话，也可以<code>封装</code>个全局方法去取到当前顶层的 <code>Navigation Controller</code>。<br>这样，FDAvatarView 的调用者只需要配置入参，其余的它自己全能搞定了，即使 App 内很多处出现头像，逻辑代码也只有一份。</p>
-</blockquote>
-<p><strong>接下来再看一个例子：</strong><br><img src="./1458789163992.png" alt="Alt text"><br>这个点赞的按钮功能上有几个职责：</p>
-<p>显示已有的点赞数<br>点击按钮后执行一个小动画，点赞数 +1，同时发送网络请求。<br>若已经点赞，点击执行反向操作<br>若网络请求发送失败，则回退成点击前的状态</p>
-<p><img src="./1458789186318.png" alt="Alt text"><br>这个控件的 代码 可以设计成这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface FDLikeButton : UIButton</span><br><span class="line">- (void)configureLikeStatus:(BOOL)likeOrNot count:(NSInteger)count animated:(BOOL)animated;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>因为继承自 <code>UIButton</code>，所以外部可以直接设置其 <code>action</code>，就不增加 tappedHandler 的参数了。<code>外部直接</code>在点击事件中需要调用这个配置方法，播放点赞动画，紧接着发送一个网络请求，若网络请求失败，可以再次调用这个 API 的无动画版本回滚状态。</p>
-<blockquote>
-<p><code>有个问题</code>，像上面的例子一样，<code>网络请求</code>和<code>事件处理逻辑相同</code>，但代码却分部在各个页面中，于是给这个 View 增加 <code>Self-Managed</code> 模式的 <code>Category</code>：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface FDLikeButton (FDLikeButtonSelfManager)</span><br><span class="line">- (void)selfManagedConfigureWithLikeStatus:(BOOL)likeOrNot count:(NSInteger)count;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@implementation FDLikeButton (FDLikeButtonSelfManager)</span><br><span class="line">- (void)selfManagedConfigureWithLikeStatus:(BOOL)likeOrNot count:(NSInteger)count &#123;</span><br><span class="line">    [self configureLikeStatus:likeOrNot count:count animated:NO];</span><br><span class="line">    [self addTarget:self action:@selector(likeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">&#125;</span><br><span class="line">- (void)likeButtonTapped:(id)sender &#123;</span><br><span class="line">    // +1 or -1 with animation</span><br><span class="line">    // Network request ^(NSError *error) &#123;</span><br><span class="line">    //     if (error) &#123;</span><br><span class="line">    //         rollback</span><br><span class="line">    //     &#125;</span><br><span class="line">    // &#125;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>设计上，<code>Self-Manager</code> 模式并没有破坏原有的 MVC 结构，上面两个例子中的 View 依然可以<code>不耦合</code>具体业务逻辑的<code>单拿出来用</code>。使用 Category 的方式把应该写在 ViewController 中的代码移动到 View 的文件中，让功能<code>更加的内聚</code>。</p>
-</blockquote>
-<p>程序的复杂度并不会因哪种酷炫的设计模式所减少，能做到的只是对<code>复杂度的切分</code>和<code>控制</code>，即：</p>
-<ul>
-<li>1、让<code>一大坨</code>恶心的代码变成<code>几小坨</code>不那么恶心的代码。</li>
-<li>2、让恶心的代码只在<code>一个地方恶心</code>。</li>
-</ul>
-<blockquote>
-<p>来源于 <a href="http://blog.sunnyxx.com/" target="_blank" rel="external">http://blog.sunnyxx.com/</a>  博客。</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式" data-title="iOS 开发中的 Self-Manager 模式" data-url="http://yoursite.com/2016/03/26/iOS 开发中的 Self-Manager 模式/iOS 开发中的 Self-Manager 模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-  
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -429,8 +406,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
