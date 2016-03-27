@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -237,14 +237,12 @@
 <ul>
 <li>MVC - &gt; MVVM : 我们平时在MVC模式下开发的时候，经常会有很多逻辑放在ViewController里面，这样使得Controller会特别的臃肿，有个解决方案就是讲逻辑部分提炼出来。用MVVM的术语来说就是将Model的数据转化为View可以呈现的东西的事情，所以就叫ViewModel。</li>
 </ul>
-<p>###MVVM的好处</p>
-<ul>
+<h3 id="MVVM的好处"><a href="#MVVM的好处" class="headerlink" title="MVVM的好处"></a>MVVM的好处</h3><ul>
 <li>MVVM 可以兼容你当下使用的 MVC 架构。</li>
 <li>MVVM 增加你的应用的可测试性。</li>
 <li>MVVM减轻Controller的重量。</li>
 </ul>
-<p>####来看个例子</p>
-<ul>
+<h4 id="来看个例子"><a href="#来看个例子" class="headerlink" title="来看个例子"></a>来看个例子</h4><ul>
 <li>一个简单的 Person Model 以及相应的 View Controller：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@interface Person : NSObject</span><br><span class="line"></span><br><span class="line">- (instancetype)initwithSalutation:(NSString *)salutation firstName:(NSString *)firstName lastName:(NSString *)lastName birthdate:(NSDate *)birthdate;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, readonly) NSString *salutation;</span><br><span class="line">@property (nonatomic, readonly) NSString *firstName;</span><br><span class="line">@property (nonatomic, readonly) NSString *lastName;</span><br><span class="line">@property (nonatomic, readonly) NSDate *birthdate;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
