@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -293,7 +293,7 @@
 <li>3、主窗口会在视图层次中找到合适的视图来处理。</li>
 <li>4、找到合适的视图控件之后，视图控件会调用touches方法处理。。</li>
 </ul>
-<p><strong>事例</strong><br><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE1.png"></p>
+<p><strong>事例</strong><br><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE2.png"></p>
 <ul>
 <li>点击了绿色的view：<br>UIApplication -&gt; UIWindow -&gt; 白色 -&gt; 绿色</li>
 <li>点击了蓝色的view：<br>UIApplication -&gt; UIWindow -&gt; 白色 -&gt; 橙色 -&gt; 蓝色</li>
@@ -320,7 +320,7 @@
 <blockquote>
 <p>提示：UIImageView的userInteractionEnabled默认就是NO，因此UIImageView以及它的子控件默认是不能接收触摸事件的。</p>
 </blockquote>
-<h2 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h2><p><strong>下面是苹果官方给的响应者链的图：</strong><br><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE2.png"></p>
+<h2 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h2><p><strong>下面是苹果官方给的响应者链的图：</strong><br><img src=" http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE3.png"></p>
 <h3 id="响应者链的传递过程"><a href="#响应者链的传递过程" class="headerlink" title="响应者链的传递过程"></a>响应者链的传递过程</h3><ul>
 <li>1、 将事件对象由上往下传递（父视图传到子视图），找到合适的控件(能接收事件)处理事件。</li>
 <li>2、调用touches方法。</li>
@@ -336,7 +336,7 @@
 <li>2、如果当前view不是contrller的view，那么上一个响应者是父视图。</li>
 </ul>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>控制器上有一个red的控件，red上有个blue的控件。</p>
-<p><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE3.png"></p>
+<p><img src=" http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE1.png"></p>
 <p>当点击blue时：先判断blue控件有没有重写touche方法，如果没有就默认调用[super touches]方法，传递到它的父类，也就是red，red也判断是有没有touches方法，有就相应，没有就传给上一个响应者controller，一层层往上传。。。</p>
 
       
