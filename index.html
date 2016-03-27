@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>A propos</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,139 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-HTTP状态码" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <!--
+<a href="/2016/03/28/HTTP状态码/" class="article-date">
+  	<time datetime="2016-03-27T16:11:54.073Z" itemprop="datePublished">2016-03-28</time>
+</a>
+-->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/28/HTTP状态码/">HTTP状态码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>定义：客户端访问服务器的时候返回的结果。</p>
+</blockquote>
+<h3 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:right">类别</th>
+<th style="text-align:center">原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1XX</td>
+<td style="text-align:right">Information(信息性状态码)</td>
+<td style="text-align:center">接受的请求在处理</td>
+</tr>
+<tr>
+<td style="text-align:left">2XX</td>
+<td style="text-align:right">Success(成功)</td>
+<td style="text-align:center">请求数据成功处理</td>
+</tr>
+<tr>
+<td style="text-align:left">3XX</td>
+<td style="text-align:right">Redirection(重定向状态码)</td>
+<td style="text-align:center">需要添加附加操作来完成任务</td>
+</tr>
+<tr>
+<td style="text-align:left">4XX</td>
+<td style="text-align:right">Client  Error(客户端错误)</td>
+<td style="text-align:center">服务器端无法处理请求</td>
+</tr>
+<tr>
+<td style="text-align:left">5XX</td>
+<td style="text-align:right">Service Error(服务器端错误)</td>
+<td style="text-align:center">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用的状态码"><a href="#常用的状态码" class="headerlink" title="常用的状态码"></a>常用的状态码</h3><h4 id="2XX-请求成功"><a href="#2XX-请求成功" class="headerlink" title="2XX 请求成功"></a>2XX 请求成功</h4><blockquote>
+<ul>
+<li>200 OK 表示客户端发来的请求在服务器被正常处理了.</li>
+<li>204 No Content 服务器接收的请求已经成功处理,但返回的响应报文中不含实体的主体部分.</li>
+<li>206 Partial Content 客户端进行了范围请求,服务器成功执行了这部分的GET请求.</li>
+</ul>
+</blockquote>
+<p> ####3XX 重定向错误</p>
+<blockquote>
+<ul>
+<li>301 Moved Permanently 永久性重定向</li>
+<li>302 Found 临时性重定向</li>
+<li>303 See Other 请求对应的资源存在着另一个URI,应使用GET方法重新获取请求的资源.</li>
+<li>304 Not Modify 客户端发送附加条件的请求时,服务器端允许请求访问资源.</li>
+<li>307 Temporary Redirect 临时重定向</li>
+</ul>
+</blockquote>
+<h4 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h4><blockquote>
+<ul>
+<li>400 Bad Request 请求报文中存在语法错误.</li>
+<li>401 Unauthorized 权鉴失败,需要有HTTP认证的认证信息.</li>
+<li>403 Forbidden 请求的资源被服务器拒绝了</li>
+<li>404 Not Fount 服务器无法找到该资源.</li>
+</ul>
+</blockquote>
+<h4 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h4><blockquote>
+<ul>
+<li>500 Internal Server Error 服务器执行请求时发生错误</li>
+<li>503 Service Unavailable 服务器暂时处于超负载或正在进行停机维护,现在无法处理请求.</li>
+<li>504 (Gateway Timeout/网关超时)</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-初识MVVM/初识MVVM" class="article article-type-post" itemscope itemprop="blogPost">
   
