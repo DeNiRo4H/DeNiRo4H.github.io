@@ -203,87 +203,6 @@
     <div class="article-meta">
       <!--
 <a href="/2016/03/27/初识MVVM/初识MVVM/" class="article-date">
-  	<time datetime="2016-03-27T15:42:54.355Z" itemprop="datePublished">2016-03-27</time>
-</a>
--->
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#初识MVVM<br>@(iOS)</p>
-<ul>
-<li>MVC :有人称之为 Massive View Controller（重量级视图控制器），也叫Model View Controller。c是为了将M和V分离的。按理说C不应该处理太多的逻辑的东西，只是让他负责管理视图的调整，当时往往很多时候，C不得不处理一些逻辑，比如网路请求数据？。。。</li>
-</ul>
-<p><img src="./1456648962696.png" alt="Alt text"></p>
-<ul>
-<li>MVVM: Model-View-ViewModel ，只是MVC的一个优化版。</li>
-</ul>
-<p><img src="./1456649268073.png" alt="Alt text"></p>
-<ul>
-<li>MVC - &gt; MVVM : 我们平时在MVC模式下开发的时候，经常会有很多逻辑放在ViewController里面，这样使得Controller会特别的臃肿，有个解决方案就是讲逻辑部分提炼出来。用MVVM的术语来说就是将Model的数据转化为View可以呈现的东西的事情，所以就叫ViewModel。</li>
-</ul>
-<p>###MVVM的好处</p>
-<ul>
-<li>MVVM 可以兼容你当下使用的 MVC 架构。</li>
-<li>MVVM 增加你的应用的可测试性。</li>
-<li>MVVM减轻Controller的重量。</li>
-</ul>
-<p>####来看个例子</p>
-<ul>
-<li>一个简单的 Person Model 以及相应的 View Controller：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@interface Person : NSObject</span><br><span class="line"></span><br><span class="line">- (instancetype)initwithSalutation:(NSString *)salutation firstName:(NSString *)firstName lastName:(NSString *)lastName birthdate:(NSDate *)birthdate;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, readonly) NSString *salutation;</span><br><span class="line">@property (nonatomic, readonly) NSString *firstName;</span><br><span class="line">@property (nonatomic, readonly) NSString *lastName;</span><br><span class="line">@property (nonatomic, readonly) NSDate *birthdate;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>Cool！现在我们假设我们有一个 PersonViewController ，在 viewDidLoad 里，只需要基于它的 model 属性设置一些 Label 即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line"></span><br><span class="line">    if (self.model.salutation.length &gt; 0) &#123;</span><br><span class="line">        self.nameLabel.text = [NSString stringWithFormat:@&quot;%@ %@ %@&quot;, self.model.salutation, self.model.firstName, self.model.lastName];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        self.nameLabel.text = [NSString stringWithFormat:@&quot;%@ %@&quot;, self.model.firstName, self.model.lastName];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    [dateFormatter setDateFormat:@&quot;EEEE MMMM d, yyyy&quot;];</span><br><span class="line">    self.birthdateLabel.text = [dateFormatter stringFromDate:model.birthdate];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这全都直截了当，标准的 MVC。现在来看看我们如何用一个 View Model 来增强它。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@interface PersonViewModel : NSObject</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithPerson:(Person *)person;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, readonly) Person *person;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, readonly) NSString *nameText;</span><br><span class="line">@property (nonatomic, readonly) NSString *birthdateText;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@implementation PersonViewModel</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithPerson:(Person *)person &#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (!self) return nil;</span><br><span class="line"></span><br><span class="line">    _person = person;</span><br><span class="line">    if (person.salutation.length &gt; 0) &#123;</span><br><span class="line">        _nameText = [NSString stringWithFormat:@&quot;%@ %@ %@&quot;, self.person.salutation, self.person.firstName, self.person.lastName];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        _nameText = [NSString stringWithFormat:@&quot;%@ %@&quot;, self.person.firstName, self.person.lastName];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    [dateFormatter setDateFormat:@&quot;EEEE MMMM d, yyyy&quot;];</span><br><span class="line">    _birthdateText = [dateFormatter stringFromDate:person.birthdate];</span><br><span class="line"></span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>Cool！我们已经将 viewDidLoad 中的表示逻辑放入我们的 View Model 里了。此时，我们新的 viewDidLoad 就会非常轻量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line"></span><br><span class="line">    self.nameLabel.text = self.viewModel.nameText;</span><br><span class="line">    self.birthdateLabel.text = self.viewModel.birthdateText;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>所以，如你所见，并没有对我们的 MVC 架构做太多改变。还是同样的代码，只不过移动了位置。它与 MVC 兼容，带来更轻量的 View Controllers。</p>
-<ul>
-<li>可测试，嗯？是怎样？好吧，View Controller 是出了名的难以测试，因为它们做了太多事情。在 MVVM 里，我们试着尽可能多的将代码移入 View Model 里。测试 View Controller 就变得容易多了，因为它们不再做一大堆事情，并且 View Model 也非常易于测试。让我们来看看：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> SpecBegin(Person)</span><br><span class="line">    NSString *salutation = @&quot;Dr.&quot;;</span><br><span class="line">    NSString *firstName = @&quot;first&quot;;</span><br><span class="line">    NSString *lastName = @&quot;last&quot;;</span><br><span class="line">    NSDate *birthdate = [NSDate dateWithTimeIntervalSince1970:0];</span><br><span class="line"></span><br><span class="line">    it (@&quot;should use the salutation available. &quot;, ^&#123;</span><br><span class="line">        Person *person = [[Person alloc] initWithSalutation:salutation firstName:firstName lastName:lastName birthdate:birthdate];</span><br><span class="line">        PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];</span><br><span class="line">        expect(viewModel.nameText).to.equal(@&quot;Dr. first last&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it (@&quot;should not use an unavailable salutation. &quot;, ^&#123;</span><br><span class="line">        Person *person = [[Person alloc] initWithSalutation:nil firstName:firstName lastName:lastName birthdate:birthdate];</span><br><span class="line">        PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];</span><br><span class="line">        expect(viewModel.nameText).to.equal(@&quot;first last&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it (@&quot;should use the correct date format. &quot;, ^&#123;</span><br><span class="line">        Person *person = [[Person alloc] initWithSalutation:nil firstName:firstName lastName:lastName birthdate:birthdate];</span><br><span class="line">        PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];</span><br><span class="line">        expect(viewModel.birthdateText).to.equal(@&quot;Thursday January 1, 1970&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">SpecEnd</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>参考文档：<a href="http://objccn.io/issue-13-1/" target="_blank" rel="external">http://objccn.io/issue-13-1/</a></p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-初识MVVM" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <!--
-<a href="/2016/03/27/初识MVVM/" class="article-date">
   	<time datetime="2016-03-27T15:37:45.134Z" itemprop="datePublished">2016-03-27</time>
 </a>
 -->
@@ -298,7 +217,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/27/初识MVVM/">初识MVVM</a>
+      <a class="article-title" href="/2016/03/27/初识MVVM/初识MVVM/">初识MVVM</a>
     </h1>
   
 
