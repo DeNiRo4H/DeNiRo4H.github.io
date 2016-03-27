@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>事件 和 响应者链条 | L4H&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事件UIResponse
+UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+
+触摸事件
+1234- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;- (void)touchesMoved:(NSSet *)touche">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件 和 响应者链条">
+<meta property="og:url" content="http://yoursite.com/2016/03/28/事件 和 响应者链条/事件 和 响应者链条/index.html">
+<meta property="og:site_name" content="L4H' Blog">
+<meta property="og:description" content="事件UIResponse
+UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+
+触摸事件
+1234- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;- (void)touchesMoved:(NSSet *)touche">
+<meta property="og:image" content="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE1.png">
+<meta property="og:image" content="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE2.png">
+<meta property="og:image" content="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE3.png">
+<meta property="og:updated_time" content="2016-03-27T16:23:37.193Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事件 和 响应者链条">
+<meta name="twitter:description" content="事件UIResponse
+UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+
+触摸事件
+1234- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;- (void)touchesMoved:(NSSet *)touche">
+<meta name="twitter:image" content="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="L4H&#39; Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xsay7.com1.z0.glb.clouddn.com/myHead.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">DeNiRo4H</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/DeNiRo4H" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/事件和响应链/" style="font-size: 10px;">事件和响应链</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">立志成为iOS开发大牛</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">DeNiRo4H</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xsay7.com1.z0.glb.clouddn.com/myHead.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">DeNiRo4H</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/DeNiRo4H" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-事件 和 响应者链条/事件 和 响应者链条" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <!--
+<a href="/2016/03/28/事件 和 响应者链条/事件 和 响应者链条/" class="article-date">
+  	<time datetime="2016-03-27T16:18:41.203Z" itemprop="datePublished">2016-03-28</time>
+</a>
+-->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      事件 和 响应者链条
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件和响应链/">事件和响应链</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h3 id="UIResponse"><a href="#UIResponse" class="headerlink" title="UIResponse"></a>UIResponse</h3><ul>
+<li><p>UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件</p>
+</li>
+<li><p>触摸事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加速事件</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event;</span><br><span class="line">- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event;</span><br><span class="line">- (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>远程控制事件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)remoteControlReceivedWithEvent:(UIEvent *)event;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h3><p>UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触摸事件</p>
+<ul>
+<li>一根或者多根手指开始触摸view，系统会自动调用view的下面方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一根或者多根手指在view上移动，系统会自动调用view的下面方法（随着手指的移动，会持续调用该方法）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一根或者多根手指离开view，系统会自动调用view的下面方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event</span><br></pre></td></tr></table></figure>
+<ul>
+<li>触摸结束前，某个系统事件(例如电话呼入)会打断触摸过程，系统会自动调用view的下面方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：touches中存放的都是UITouch对象，根据touches中UITouch的个数可以判断出是单点触摸还是多点触摸。。</p>
+</blockquote>
+<h3 id="UITouch"><a href="#UITouch" class="headerlink" title="UITouch"></a>UITouch</h3><ul>
+<li><p>当用户用一根触摸屏幕时，会创建一个与手指相关联的UITouch对象</p>
+</li>
+<li><p>一根手指对应一个UITouch对象</p>
+</li>
+</ul>
+<p><strong>UITouch的作用</strong></p>
+<ul>
+<li><p>保存着跟手指相关的信息，比如触摸的位置、时间、阶段</p>
+</li>
+<li><p>当手指移动时，系统会更新同一个UITouch对象，使之能够一直保存该手指在的触摸位置</p>
+</li>
+<li><p>当手指离开屏幕时，系统会销毁相应的UITouch对象</p>
+</li>
+</ul>
+<h3 id="UIEvent"><a href="#UIEvent" class="headerlink" title="UIEvent"></a>UIEvent</h3><ul>
+<li><p>每产生一个事件，就会产生一个UIEvent对象</p>
+</li>
+<li><p>UIEvent：称为事件对象，记录事件产生的时刻和类型</p>
+</li>
+<li>常见属性和事件类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@property(nonatomic,readonly) UIEventType     type;</span><br><span class="line">@property(nonatomic,readonly) UIEventSubtype  subtype;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事件产生的时间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property(nonatomic,readonly) NSTimeInterval  timestamp;</span><br></pre></td></tr></table></figure>
+<h3 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h3><ul>
+<li>1、发生触摸事件之后，系统会将事件添加到由一个UIApplication管理的队列中去。</li>
+<li>2、UIApplication会将队列中最前面的事件分发下去，通常，先分发事件给应用程序的主窗口(keyWindow)</li>
+<li>3、主窗口会在视图层次中找到合适的视图来处理。</li>
+<li>4、找到合适的视图控件之后，视图控件会调用touches方法处理。。</li>
+</ul>
+<p><strong>事例</strong><br><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE1.png"></p>
+<ul>
+<li>点击了绿色的view：<br>UIApplication -&gt; UIWindow -&gt; 白色 -&gt; 绿色</li>
+<li>点击了蓝色的view：<br>UIApplication -&gt; UIWindow -&gt; 白色 -&gt; 橙色 -&gt; 蓝色</li>
+<li><p>点击了黄色的view：<br>UIApplication -&gt; UIWindow -&gt; 白色 -&gt; 橙色 -&gt; 蓝色 -&gt; 黄色</p>
+<p><strong>如何找到最合适的控件来处理事件？</strong></p>
+</li>
+<li>1、自己是否能接收触摸事件？能的话往下传</li>
+<li>2、触摸点是否在自己身上？是的话到3</li>
+<li>3、从后往前遍历子控件，重复前面的两个步骤</li>
+<li>4、如果没有符合条件的子控件，那么就自己最适合处理</li>
+</ul>
+<h3 id="UIView不接受事件的情况"><a href="#UIView不接受事件的情况" class="headerlink" title="UIView不接受事件的情况"></a>UIView不接受事件的情况</h3><ul>
+<li>1、不接收用户交互</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userInteractionEnabled = NO</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2、隐藏</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hidden = YES</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3、透明</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alpha = 0.0 ~ 0.01</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：UIImageView的userInteractionEnabled默认就是NO，因此UIImageView以及它的子控件默认是不能接收触摸事件的。</p>
+</blockquote>
+<h2 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h2><p><strong>下面是苹果官方给的响应者链的图：</strong><br><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE2.png"></p>
+<h3 id="响应者链的传递过程"><a href="#响应者链的传递过程" class="headerlink" title="响应者链的传递过程"></a>响应者链的传递过程</h3><ul>
+<li>1、 将事件对象由上往下传递（父视图传到子视图），找到合适的控件(能接收事件)处理事件。</li>
+<li>2、调用touches方法。</li>
+<li>3、如果最合适控件没有touches方法，会默认调用[super touches..]方法。或者有touches方法，而且在touchees方法调用了[super touches]方法的话，就会沿着响应链往上传递。</li>
+<li>4、接着就会调用上一层的touches方法。</li>
+</ul>
+<h3 id="什么是响应链条"><a href="#什么是响应链条" class="headerlink" title="什么是响应链条"></a>什么是响应链条</h3><ul>
+<li>1、相应链条是由多个响应者对象链接起来的链条。（什么是相应者对象：能处理相应的对象，继承子UIResponse）。</li>
+<li>2、利用响应链者能让多个控件处理同一个事件。</li>
+</ul>
+<h3 id="谁是上一个响应者呢？"><a href="#谁是上一个响应者呢？" class="headerlink" title="谁是上一个响应者呢？"></a>谁是上一个响应者呢？</h3><ul>
+<li>1、如果当前view是contrller的view，那么上一个响应者是controller。</li>
+<li>2、如果当前view不是contrller的view，那么上一个响应者是父视图。</li>
+</ul>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>控制器上有一个red的控件，red上有个blue的控件。</p>
+<p><img src="http://7xsay7.com1.z0.glb.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%93%8D%E5%BA%94%E9%93%BE3.png"></p>
+<p>当点击blue时：先判断blue控件有没有重写touche方法，如果没有就默认调用[super touches]方法，传递到它的父类，也就是red，red也判断是有没有touches方法，有就相应，没有就传给上一个响应者controller，一层层往上传。。。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/28/HTTP状态码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP状态码</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="事件 和 响应者链条/事件 和 响应者链条" data-title="事件 和 响应者链条" data-url="http://yoursite.com/2016/03/28/事件 和 响应者链条/事件 和 响应者链条/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 DeNiRo4H
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
