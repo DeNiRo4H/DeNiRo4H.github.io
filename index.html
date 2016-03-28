@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/事件和响应链/" style="font-size: 10px;">事件和响应链</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+						<a href="/tags/iOS工具/" style="font-size: 10px;">iOS工具</a> <a href="/tags/事件和响应链/" style="font-size: 10px;">事件和响应链</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -198,6 +198,171 @@
 
       <div class="body-wrap">
   
+    <article id="post-cocoaPods的安装 和 一些常见问题/cocoaPods的安装 和 一些常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <!--
+<a href="/2016/03/28/cocoaPods的安装 和 一些常见问题/cocoaPods的安装 和 一些常见问题/" class="article-date">
+  	<time datetime="2016-03-28T06:11:45.679Z" itemprop="datePublished">2016-03-28</time>
+</a>
+-->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/28/cocoaPods的安装 和 一些常见问题/cocoaPods的安装 和 一些常见问题/">cocoaPods的安装 和 一些常见问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、什么是CocoaPods"><a href="#一、什么是CocoaPods" class="headerlink" title="一、什么是CocoaPods"></a>一、什么是CocoaPods</h3><p><code>CocoaPods</code>是iOS项目的依赖管理工具，该项目源码在<code>Github</code>上管理。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和第三方开源库的时间。在使用CocoaPods之前，开发项目需要用到第三方开源库的时候，我们需要</p>
+<blockquote>
+<ul>
+<li>1.把开源库的源代码复制到项目中</li>
+<li>2.添加一些依赖框架和动态库</li>
+<li>3.设置-ObjC，-fno-objc-arc等参数</li>
+<li>4.管理他们的更新</li>
+</ul>
+</blockquote>
+<p> 在使用<code>CocoaPods</code>后，我们只需要把用到的开源库放到一个名为<code>Podfile</code>的文件中，然后执行<code>pod install</code>, <code>Cocoapods</code>就会自动将这些第三方开源库的源码下载下来，并且为我们的工程设置好响应的<code>系统依赖</code>和<code>编译参数</code>。</p>
+<h3 id="二、CocoaPods的原理"><a href="#二、CocoaPods的原理" class="headerlink" title="二、CocoaPods的原理"></a>二、CocoaPods的原理</h3><p><code>CocoaPods</code>的原理是将所有的依赖库都放到另一个名为<code>Pods</code>的项目中，然后让主项目依赖Pods项目，这样，源码管理工作都从主项目移到了Pods项目中。Pods项目最终会编译成一个名为<code>libPods.a</code>的文件，主项目只需要依赖这个<code>.a文件</code>即可。</p>
+<h3 id="三、CocaaPods的安装"><a href="#三、CocaaPods的安装" class="headerlink" title="三、CocaaPods的安装"></a>三、CocaaPods的安装</h3><p><strong>一、下载cocoaPods</strong></p>
+<p>CocoaPods可以方便地通过<code>Mac</code>自带的<code>RubyGems</code>安装。<br>打开Terminal(终端)，然后键入以下命令：</p>
+<blockquote>
+<ul>
+<li>sudo gem install cocoapods </li>
+</ul>
+</blockquote>
+<pre><code>执行完这句如果报告以下错误：ERROR:  
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not find a valid gem &apos;cocoapods&apos; (&gt;= 0), here is why:          Unable to download data from https://rubygems.org/ - Errno::ETIMEDOUT: Operation timed out - connect(2) (https://rubygems.org/latest_specs.4.8.gz)ERROR:  Possible alternatives: cocoapods</span><br></pre></td></tr></table></figure>
+<p>这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被我天朝屏蔽了，需要更新一下ruby的源，过程如下：</p>
+<blockquote>
+<ul>
+<li>gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a></li>
+<li>gem sources -a <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></li>
+<li>gem sources -l</li>
+</ul>
+</blockquote>
+<p> 如果gem太老，可以尝试用如下命令升级gem:</p>
+<blockquote>
+<ul>
+<li>sudo gem update –system</li>
+</ul>
+</blockquote>
+<p>  升级成功后会提示: <code>RubyGems system software updated</code><br>然后重新执行安装下载命令:<br>&gt;</p>
+<ul>
+<li><p>sudo gem install cocoapods</p>
+<p>这时候应该没什么问题了</p>
+</li>
+</ul>
+<p><strong>二、安装pod（耐心等待）</strong><br>接下来进行安装，执行：</p>
+<blockquote>
+<ul>
+<li>pod setup</li>
+</ul>
+</blockquote>
+<p> <code>Setting up CocoaPods master repo</code><br>这个状态一段时间,是因为要进行下载安装,而且目录比较大,需要耐心等待一下，完成后出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  CocoaPods 1.0.0.beta.5 is available.</span><br><span class="line">To update use: `gem install cocoapods --pre`</span><br><span class="line">[!] This is a test version we&apos;d love you to try.</span><br><span class="line"></span><br><span class="line">For more information see http://blog.cocoapods.org</span><br><span class="line">and the CHANGELOG for this version http://git.io/BaH8pQ.</span><br><span class="line"></span><br><span class="line">Setup completed</span><br></pre></td></tr></table></figure>
+<p>###四、CocoaPods的使用</p>
+<p>1、进入工程所在的目录（工程根目录）:</p>
+<blockquote>
+<ul>
+<li>cd  /Users/kiki/Desktop/LSH的文件/LSH各种Demo</li>
+</ul>
+</blockquote>
+<p> 2、新建一个名为<code>Podfile</code>的文件（不能写成别的名字，也可以自己在工程根目录里面直接新建）:<br>&gt;</p>
+<ul>
+<li><p>touch Podfile</p>
+<p>3、打开<code>Podfile</code>，第一次执行这个命令,会有一个空白文件打开，可以先放在一边:<br>&gt;</p>
+</li>
+<li>open -e Podfile</li>
+</ul>
+<p>  Podfile文件的格式应该如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">platform :ios, &apos;7.0&apos;</span><br><span class="line">pod &apos;AMap2DMap&apos;, &apos;~&gt; 2.5.0&apos;</span><br><span class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 2.5.3&apos;</span><br><span class="line">pod &apos;SDWebImage&apos;, &apos;~&gt; 3.7.2&apos;</span><br></pre></td></tr></table></figure>
+<p>需要注意的几点：platform那一行，ios三个字母都要小写，而且与前面的冒号之间不能有间隔，后面的版本号也可以不写，但是有些开源库对版本是有要求的，比如要在6.0以上才能运行，遇到这样的开源库就需要写上版本号。</p>
+<p>platform下面就是Cocoapods需要集成的开源库，根据你的需要确定集成那些库。</p>
+<p>4、搜索你要使用的第三方库，比如搜索AFNetWorking：</p>
+<blockquote>
+<ul>
+<li>pod search AFNetworking</li>
+</ul>
+</blockquote>
+<p> 就可以看到和你搜索的关键字相关的一些库类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> -&gt; AFNetworking (3.0.4)</span><br><span class="line">   A delightful iOS and OS X networking framework.</span><br><span class="line">   pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0.4&apos;</span><br><span class="line">   - Homepage: https://github.com/AFNetworking/AFNetworking</span><br><span class="line">   - Source:   https://github.com/AFNetworking/AFNetworking.git</span><br><span class="line">   - Versions: 3.0.4, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 3.0.0-beta.3, 3.0.0-beta.2,</span><br><span class="line">   3.0.0-beta.1, 2.6.3, 2.6.2, 2.6.1, 2.6.0, 2.5.4, 2.5.3, 2.5.2, 2.5.1, 2.5.0,</span><br><span class="line">   2.4.1, 2.4.0, 2.3.1, 2.3.0, 2.2.4, 2.2.3, 2.2.2, 2.2.1, 2.2.0, 2.1.0, 2.0.3,</span><br><span class="line">   2.0.2, 2.0.1, 2.0.0, 2.0.0-RC3, 2.0.0-RC2, 2.0.0-RC1, 1.3.4, 1.3.3, 1.3.2,</span><br><span class="line">   1.3.1, 1.3.0, 1.2.1, 1.2.0, 1.1.0, 1.0.1, 1.0, 1.0RC3, 1.0RC2, 1.0RC1,</span><br><span class="line">   0.10.1, 0.10.0, 0.9.2, 0.9.1, 0.9.0, 0.7.0, 0.5.1 [master repo]</span><br><span class="line">   - Subspecs:</span><br><span class="line">     - AFNetworking/Serialization (3.0.4)</span><br><span class="line">     - AFNetworking/Security (3.0.4)</span><br><span class="line">     - AFNetworking/Reachability (3.0.4)</span><br><span class="line">     - AFNetworking/NSURLSession (3.0.4)</span><br><span class="line">     - AFNetworking/UIKit (3.0.4)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-&gt; AFNetworking+AutoRetry (0.0.5)</span><br><span class="line">   Auto Retries for AFNetworking requests</span><br><span class="line">   pod &apos;AFNetworking+AutoRetry&apos;, &apos;~&gt; 0.0.5&apos;</span><br><span class="line">   - Homepage: https://github.com/shaioz/AFNetworking-AutoRetry</span><br><span class="line">   - Source:   https://github.com/shaioz/AFNetworking-AutoRetry.git</span><br><span class="line">   - Versions: 0.0.5, 0.0.4, 0.0.3, 0.0.2, 0.0.1 [master repo]</span><br><span class="line">   。。。。。。。。</span><br><span class="line">   。。。。</span><br><span class="line">   。。。</span><br></pre></td></tr></table></figure>
+<p>只是列举了一部分，还有很多。。。。</p>
+<p>5、复制第一个 <code>pod &#39;AFNetworking&#39;, &#39;~&gt; 3.0.4&#39;</code>到你的工程目录下的<br><code>Podfile文件中</code>，保存修改。</p>
+<p>6、最后一步：<br>AFNetworking就已经下载完成并且设置好了编译参数和依赖：</p>
+<blockquote>
+<ul>
+<li>pod install</li>
+</ul>
+</blockquote>
+<p> 之后会出现下面的情况:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Updating local specs repositories</span><br><span class="line"></span><br><span class="line">CocoaPods 1.0.0.beta.5 is available.</span><br><span class="line">To update use: `gem install cocoapods --pre`</span><br><span class="line">[!] This is a test version we&apos;d love you to try.</span><br><span class="line"></span><br><span class="line">For more information see http://blog.cocoapods.org</span><br><span class="line">and the CHANGELOG for this version http://git.io/BaH8pQ.</span><br><span class="line"></span><br><span class="line">Analyzing dependencies</span><br><span class="line">Downloading dependencies</span><br><span class="line">Installing AFNetworking (3.0.4)</span><br><span class="line">Generating Pods project</span><br><span class="line">Integrating client project</span><br><span class="line"></span><br><span class="line">[!] Please close any current Xcode sessions and use `cocoaPodDemo.xcworkspace` for this project from now on.</span><br><span class="line">Sending stats</span><br><span class="line">Pod installation complete! There is 1 dependency from the Podfile and 1 total</span><br><span class="line">pod installed.</span><br></pre></td></tr></table></figure></p>
+<p>项目中会出现：</p>
+<p><img src="http://7xsay7.com1.z0.glb.clouddn.com/cocoaPods%E7%9A%84%E5%AE%89%E8%A3%85%20%E5%92%8C%20%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%981.png"></p>
+<p><strong>注意事项：</strong></p>
+<p>1、从此以后需要使用Cocoapods生成的 .<code>xcworkspace</code>文件来打开工程，而不是使用以前的.<code>xcodeproj</code>文件。<br>2、每次更改了Podfile文件，都需要重新执行一次pod update命令。<br>PS :<br>Podfile.lock：该文件用来保存安装的Pods依赖库的版本，当执行完pod install命令后，lock文件会记录当前导入第三方库的版本号及其依赖库的版本号，当再次pod install时，cocoaPods会去取lock文件记录的版本号，而不会去取最新的版本，这对于团队开发很有用。<br>当执行<code>pod install</code>之后，除了<code>Podfile</code>，还会生成一个名为<code>Podfile.lock</code>的文件，它会锁定当前各依赖库的版本，之后即使多次执行<code>pod install</code>也不会更改版本，只有执行<code>pod update</code>才会改变<code>Podfile.lock.</code>在多人协作的时候，这样可以防止第三方库升级时候造成大家各自的第三方库版本不一致。</p>
+<h3 id="五、常见问题"><a href="#五、常见问题" class="headerlink" title="五、常见问题"></a>五、常见问题</h3><p>一、在工程中导入第三方库的头文件时没有提醒时可以：</p>
+<blockquote>
+<ul>
+<li>1、选择<code>Target -&gt; Build Settings</code> 菜单，找到\”<code>User Header Search Paths</code>\”设置项</li>
+<li>2、双击后面点<code>+号</code>新增一个值”<code>${SRCROOT}</code>“，并且选择\”<code>Recursive</code>\”</li>
+</ul>
+</blockquote>
+<p> 最后：<br> <strong>附: 如何使用CocoaPods的镜像索引:</strong><br>所有项目的Podspec文件都托管在<code>https://github.com/CocoaPods/Specs,</code><br>第一次执行<code>pod setup</code>时,CocoaPods会将这些<code>podspec</code>索引文件更新到本地的<code>~/.cocoapods目录下,</code><br>这个索引文件比较大,所以第一次更新时非常慢.<br>友好人士在国内的服务器建立了Cocoapods索引库的镜像,<br>所以执行索引跟新操作时候会快很多.具体操作方法如下:</p>
+<blockquote>
+<ul>
+<li>pod repo remove master</li>
+<li>pod repo add master <a href="https://gitcafe.com/akuandev/Specs.git" target="_blank" rel="external">https://gitcafe.com/akuandev/Specs.git</a></li>
+<li>pod repo update</li>
+</ul>
+</blockquote>
+<p>  这是使用gitcafe上的镜像,将以上代码中的 <code>https://gitcafe.com/akuandev/Specs.git</code><br>替换成 <code>http://git.oschina.net/akuandev/Specs.git</code> 即可使用oschina上的镜像。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS工具/">iOS工具</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-事件 和 响应者链条/事件 和 响应者链条" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -217,7 +382,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/28/事件 和 响应者链条/事件 和 响应者链条/">事件 和 响应者链条</a>
+      <a class="article-title" href="/2016/03/28/事件 和 响应者链条/事件 和 响应者链条/">iOS中事件和响应者链条</a>
     </h1>
   
 
