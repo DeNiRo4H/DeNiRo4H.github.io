@@ -4,117 +4,39 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>HTTP状态码 | L4H&#39; Blog</title>
+  <title>SDImageView的实现原理 | L4H&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义：客户端访问服务器的时候返回的结果。
-
-类别
-
-
-状态码
-类别
-原因
+  <meta name="description" content="具有缓存管理，异步下载、同一URL下载次数的控制和优化等。这个类提供了一个重要的分类，UIImageView的分类，用来支持下载网络图片。
+用来解决什么问题：
+一、在UITableView中加载大图时卡顿的问题。
+ 如果你加载图片的时候是在主线程中的话，那么这个操作就会阻塞UITableView的滑动。所以一般情况下会用到SDWebImage 进行异步的下载图片，异步缓存图片。
 
 
 
-
-1XX
-Information(信息性状态码)
-接受的请求在处理
-
-
-2XX
-Success(成功)
-请求数据成功处理
-
-
-3XX
-Redirection(重定向状态码)
-需要添加附加操作来完成任务
-
-
-4XX
-Client  Error(客户端错误)
-服务器端无法处理请求
-
-
-5XX
-Service Error(">
+流程大致如下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP状态码">
-<meta property="og:url" content="http://yoursite.com/2016/03/28/HTTP状态码/index.html">
+<meta property="og:title" content="SDImageView的实现原理">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/SDImageView的实现原理/index.html">
 <meta property="og:site_name" content="L4H' Blog">
-<meta property="og:description" content="定义：客户端访问服务器的时候返回的结果。
-
-类别
-
-
-状态码
-类别
-原因
+<meta property="og:description" content="具有缓存管理，异步下载、同一URL下载次数的控制和优化等。这个类提供了一个重要的分类，UIImageView的分类，用来支持下载网络图片。
+用来解决什么问题：
+一、在UITableView中加载大图时卡顿的问题。
+ 如果你加载图片的时候是在主线程中的话，那么这个操作就会阻塞UITableView的滑动。所以一般情况下会用到SDWebImage 进行异步的下载图片，异步缓存图片。
 
 
 
-
-1XX
-Information(信息性状态码)
-接受的请求在处理
-
-
-2XX
-Success(成功)
-请求数据成功处理
-
-
-3XX
-Redirection(重定向状态码)
-需要添加附加操作来完成任务
-
-
-4XX
-Client  Error(客户端错误)
-服务器端无法处理请求
-
-
-5XX
-Service Error(">
-<meta property="og:updated_time" content="2016-03-27T16:15:42.047Z">
+流程大致如下">
+<meta property="og:updated_time" content="2016-04-11T09:44:42.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP状态码">
-<meta name="twitter:description" content="定义：客户端访问服务器的时候返回的结果。
-
-类别
-
-
-状态码
-类别
-原因
+<meta name="twitter:title" content="SDImageView的实现原理">
+<meta name="twitter:description" content="具有缓存管理，异步下载、同一URL下载次数的控制和优化等。这个类提供了一个重要的分类，UIImageView的分类，用来支持下载网络图片。
+用来解决什么问题：
+一、在UITableView中加载大图时卡顿的问题。
+ 如果你加载图片的时候是在主线程中的话，那么这个操作就会阻塞UITableView的滑动。所以一般情况下会用到SDWebImage 进行异步的下载图片，异步缓存图片。
 
 
 
-
-1XX
-Information(信息性状态码)
-接受的请求在处理
-
-
-2XX
-Success(成功)
-请求数据成功处理
-
-
-3XX
-Redirection(重定向状态码)
-需要添加附加操作来完成任务
-
-
-4XX
-Client  Error(客户端错误)
-服务器端无法处理请求
-
-
-5XX
-Service Error(">
+流程大致如下">
   
     <link rel="alternative" href="/atom.xml" title="L4H&#39; Blog" type="application/atom+xml">
   
@@ -296,12 +218,12 @@ Service Error(">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-HTTP状态码" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SDImageView的实现原理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <!--
-<a href="/2016/03/28/HTTP状态码/" class="article-date">
-  	<time datetime="2016-03-27T16:11:54.073Z" itemprop="datePublished">2016-03-28</time>
+<a href="/2016/04/11/SDImageView的实现原理/" class="article-date">
+  	<time datetime="2016-04-11T09:23:22.361Z" itemprop="datePublished">2016-04-11</time>
 </a>
 -->
     </div>
@@ -315,7 +237,7 @@ Service Error(">
         
   
     <h1 class="article-title" itemprop="name">
-      HTTP状态码
+      SDImageView的实现原理
     </h1>
   
 
@@ -324,7 +246,7 @@ Service Error(">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS第三方框架/">iOS第三方框架</a></li></ul>
 	</div>
 
         
@@ -339,75 +261,53 @@ Service Error(">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>定义：客户端访问服务器的时候返回的结果。</p>
+        <p>具有<code>缓存管理</code>，<code>异步下载</code>、<code>同一URL下载次数的控制</code>和<code>优化</code>等。这个类提供了一个重要的分类，UIImageView的分类，用来支持下载网络图片。</p>
+<h3 id="用来解决什么问题："><a href="#用来解决什么问题：" class="headerlink" title="用来解决什么问题："></a>用来解决什么问题：</h3><ul>
+<li>一、在UITableView中加载大图时卡顿的问题。<blockquote>
+<p> 如果你加载图片的时候是在主线程中的话，那么这个操作就会阻塞UITableView的滑动。所以一般情况下会用到SDWebImage 进行异步的下载图片，异步缓存图片。</p>
 </blockquote>
-<h3 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">状态码</th>
-<th style="text-align:right">类别</th>
-<th style="text-align:center">原因</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1XX</td>
-<td style="text-align:right">Information(信息性状态码)</td>
-<td style="text-align:center">接受的请求在处理</td>
-</tr>
-<tr>
-<td style="text-align:left">2XX</td>
-<td style="text-align:right">Success(成功)</td>
-<td style="text-align:center">请求数据成功处理</td>
-</tr>
-<tr>
-<td style="text-align:left">3XX</td>
-<td style="text-align:right">Redirection(重定向状态码)</td>
-<td style="text-align:center">需要添加附加操作来完成任务</td>
-</tr>
-<tr>
-<td style="text-align:left">4XX</td>
-<td style="text-align:right">Client  Error(客户端错误)</td>
-<td style="text-align:center">服务器端无法处理请求</td>
-</tr>
-<tr>
-<td style="text-align:left">5XX</td>
-<td style="text-align:right">Service Error(服务器端错误)</td>
-<td style="text-align:center">服务器处理请求出错</td>
-</tr>
-</tbody>
-</table>
-<h3 id="常用的状态码"><a href="#常用的状态码" class="headerlink" title="常用的状态码"></a>常用的状态码</h3><h4 id="2XX-请求成功"><a href="#2XX-请求成功" class="headerlink" title="2XX 请求成功"></a>2XX 请求成功</h4><blockquote>
+</li>
+</ul>
+<h3 id="流程大致如下："><a href="#流程大致如下：" class="headerlink" title="流程大致如下："></a>流程大致如下：</h3><ul>
+<li>1、在下载还没有完成的时候先显示占位图片<code>placeholderImage</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setImageWithURL:placeholderImage:options:</span><br></pre></td></tr></table></figure>
 <ul>
-<li>200 OK 表示客户端发来的请求在服务器被正常处理了.</li>
-<li>204 No Content 服务器接收的请求已经成功处理,但返回的响应报文中不含实体的主体部分.</li>
-<li>206 Partial Content 客户端进行了范围请求,服务器成功执行了这部分的GET请求.</li>
+<li>2、将任务交给<code>SDWebImageManager</code>处理。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SDWebImageManager-downloadWithURL:delegate:options:userInfo:</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3、<code>SDWebImageManager</code>利用<code>SDImageCache</code> 从缓存中查找图片是否已经下载，如果有就到<code>SDWebImageManager</code>，结束。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queryDiskCacheForKey:delegate:userInfo:.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4、先从内存中查找是否有缓存图片，如果没有第五步。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imageCache:didFindImage:forKey:userInfo:</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>5、如果内存缓存中没有，生成<code>NSInvocationOperation</code>添加到队列开始从硬盘查找图片是否已经缓存。</p>
+</li>
+<li><p>6、根据<code>URLKey</code>在硬盘缓存目录下尝试读取图片文件。</p>
+</li>
+<li>7、如果从硬盘缓存目录读取不到图片，说明所有缓存都不存在该图片，需要下载图片，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">回调imageCache:didNotFindImageForKey:userInfo:。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>8、共享或重新生成一个下载器<code>SDWebImageDownloader</code>开始下载图片。</li>
+<li><p>9、图片下载由<code>NSURLConnection</code>来做，实现相关代理来判断图片下载中、下载完成和下载失败。</p>
+<blockquote>
+<p>代理方法中做一些事情：</p>
+<ul>
+<li><strong>connection:didReceiveData</strong>:中利用<code>ImageIO</code>做了按图片下载进度加载效果。</li>
+<li><strong>connectionDidFinishLoading</strong>:数据下载完成后交给<code>SDWebImageDecoder</code>做图片解码处理。图片解码处理在一个<code>NSOperationQueue</code>完成，不会拖慢主线程UI。</li>
 </ul>
 </blockquote>
-<h4 id="3XX-重定向错误"><a href="#3XX-重定向错误" class="headerlink" title="3XX 重定向错误"></a>3XX 重定向错误</h4><blockquote>
-<ul>
-<li>301 Moved Permanently 永久性重定向</li>
-<li>302 Found 临时性重定向</li>
-<li>303 See Other 请求对应的资源存在着另一个URI,应使用GET方法重新获取请求的资源.</li>
-<li>304 Not Modify 客户端发送附加条件的请求时,服务器端允许请求访问资源.</li>
-<li>307 Temporary Redirect 临时重定向</li>
+</li>
+<li><p>10、下载完成后将图片保存到<code>SDImageCache</code>中，内存缓存和硬盘缓存同时保存。</p>
+</li>
 </ul>
-</blockquote>
-<h4 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h4><blockquote>
-<ul>
-<li>400 Bad Request 请求报文中存在语法错误.</li>
-<li>401 Unauthorized 权鉴失败,需要有HTTP认证的认证信息.</li>
-<li>403 Forbidden 请求的资源被服务器拒绝了</li>
-<li>404 Not Fount 服务器无法找到该资源.</li>
-</ul>
-</blockquote>
-<h4 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h4><blockquote>
-<ul>
-<li>500 Internal Server Error 服务器执行请求时发生错误</li>
-<li>503 Service Unavailable 服务器暂时处于超负载或正在进行停机维护,现在无法处理请求.</li>
-<li>504 (Gateway Timeout/网关超时)</li>
-</ul>
+<blockquote>
+<p>DWI也提供了UIButton+WebCache和MKAnnotationView+WebCache，方便使用。</p>
 </blockquote>
 
       
@@ -418,18 +318,18 @@ Service Error(">
     
 <nav id="article-nav">
   
-    <a href="/2016/03/28/事件 和 响应者链条/事件 和 响应者链条/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/11/Hexo+GitHub免费搭建自己的博客/Hexo+GitHub免费搭建自己的博客/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          iOS中事件和响应者链条
+          Hexo+GitHub免费搭建自己的博客
         
       </div>
     </a>
   
   
-    <a href="/2016/03/27/初识MVVM/初识MVVM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">初识MVVM</div>
+    <a href="/2016/04/11/static 、 const  和 宏/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -464,7 +364,7 @@ Service Error(">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="HTTP状态码" data-title="HTTP状态码" data-url="http://yoursite.com/2016/03/28/HTTP状态码/"></div>
+	<div class="ds-thread" data-thread-key="SDImageView的实现原理" data-title="SDImageView的实现原理" data-url="http://yoursite.com/2016/04/11/SDImageView的实现原理/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
