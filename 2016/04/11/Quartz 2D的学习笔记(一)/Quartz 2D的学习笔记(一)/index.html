@@ -50,7 +50,7 @@ Quartz 2D能做什么：
 <meta property="og:image" content="http://7xsay7.com1.z0.glb.clouddn.com/Quartz%202D%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)8.png">
 <meta property="og:image" content="http://7xsay7.com1.z0.glb.clouddn.com/Quartz%202D%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)9.png">
 <meta property="og:image" content="http://7xsay7.com1.z0.glb.clouddn.com/Quartz%202D%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)10.png">
-<meta property="og:updated_time" content="2016-04-11T10:18:46.025Z">
+<meta property="og:updated_time" content="2016-04-11T10:24:04.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Quartz 2D的学习笔记(一)">
 <meta name="twitter:description" content="学完要掌握
@@ -131,7 +131,7 @@ Quartz 2D能做什么：
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -413,9 +413,10 @@ Quartz 2D能做什么：
 <blockquote>
 <ul>
 <li>当view第一次显示到屏幕上时（被加到UIWindow上显示出来）</li>
-<li>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时<br>呵<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>32<br>拉动 下面的 slider 滑块会重绘上面的圆<br><img src="http://7xsay7.com1.z0.glb.clouddn.com/Quartz%202D%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)10.png"></li>
+<li>调用view的<code>setNeedsDisplay</code>或者<code>setNeedsDisplayInRect:</code>时</li>
 </ul>
 </blockquote>
+<p>拉动 下面的 slider 滑块会重绘上面的圆<br><img src="http://7xsay7.com1.z0.glb.clouddn.com/Quartz%202D%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)10.png"></p>
 <p>控制器里面：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (IBAction)sizeChange:(UISlider *)sender &#123;</span><br><span class="line">    self.circleView.radius = sender.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 自定义view：</p>
