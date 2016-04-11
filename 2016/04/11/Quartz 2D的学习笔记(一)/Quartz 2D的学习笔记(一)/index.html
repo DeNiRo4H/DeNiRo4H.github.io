@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>L4H&#39; Blog</title>
+  <title>Quartz 2D的学习笔记(一) | L4H&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Quartz 2D的学习笔记(一)@(iOS)
-学完要掌握
+  <meta name="description" content="学完要掌握
 
 
 drawRect:方法的使用
@@ -18,13 +17,15 @@ drawRect:方法的使用
 
 
 什么是Quartz 2DQuartz 2D是一个二维绘图引擎，同时支持iOS和Mac系统 , Quartz2D的API来自于Core Graphics框架，是纯C语言的。
-Quartz 2D能">
+Quartz 2D能做什么：
+
+
+绘制图形 : 线条\三角形\矩形\">
 <meta property="og:type" content="article">
-<meta property="og:title" content="L4H' Blog">
+<meta property="og:title" content="Quartz 2D的学习笔记(一)">
 <meta property="og:url" content="http://yoursite.com/2016/04/11/Quartz 2D的学习笔记(一)/Quartz 2D的学习笔记(一)/index.html">
 <meta property="og:site_name" content="L4H' Blog">
-<meta property="og:description" content="Quartz 2D的学习笔记(一)@(iOS)
-学完要掌握
+<meta property="og:description" content="学完要掌握
 
 
 drawRect:方法的使用
@@ -35,22 +36,14 @@ drawRect:方法的使用
 
 
 什么是Quartz 2DQuartz 2D是一个二维绘图引擎，同时支持iOS和Mac系统 , Quartz2D的API来自于Core Graphics框架，是纯C语言的。
-Quartz 2D能">
-<meta property="og:image" content="http://yoursite.com/./1460170698917.png">
-<meta property="og:image" content="http://yoursite.com/./1460170810089.png">
-<meta property="og:image" content="http://yoursite.com/./1460170858627.png">
-<meta property="og:image" content="http://yoursite.com/./1460171443633.png">
-<meta property="og:image" content="http://yoursite.com/./1460171570778.png">
-<meta property="og:image" content="http://yoursite.com/./1460178049871.png">
-<meta property="og:image" content="http://yoursite.com/./1460179093822.png">
-<meta property="og:image" content="http://yoursite.com/./1460181420681.png">
-<meta property="og:image" content="http://yoursite.com/./1460181561292.png">
-<meta property="og:image" content="http://yoursite.com/./1460182554935.png">
-<meta property="og:updated_time" content="2016-04-11T09:22:14.000Z">
+Quartz 2D能做什么：
+
+
+绘制图形 : 线条\三角形\矩形\">
+<meta property="og:updated_time" content="2016-04-11T10:05:07.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="L4H' Blog">
-<meta name="twitter:description" content="Quartz 2D的学习笔记(一)@(iOS)
-学完要掌握
+<meta name="twitter:title" content="Quartz 2D的学习笔记(一)">
+<meta name="twitter:description" content="学完要掌握
 
 
 drawRect:方法的使用
@@ -61,8 +54,10 @@ drawRect:方法的使用
 
 
 什么是Quartz 2DQuartz 2D是一个二维绘图引擎，同时支持iOS和Mac系统 , Quartz2D的API来自于Core Graphics框架，是纯C语言的。
-Quartz 2D能">
-<meta name="twitter:image" content="http://yoursite.com/./1460170698917.png">
+Quartz 2D能做什么：
+
+
+绘制图形 : 线条\三角形\矩形\">
   
     <link rel="alternative" href="/atom.xml" title="L4H&#39; Blog" type="application/atom+xml">
   
@@ -125,7 +120,7 @@ Quartz 2D能">
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -162,7 +157,7 @@ Quartz 2D能">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/iOS工具/" style="font-size: 10px;">iOS工具</a> <a href="/tags/iOS第三方框架/" style="font-size: 10px;">iOS第三方框架</a> <a href="/tags/事件和响应链/" style="font-size: 10px;">事件和响应链</a> <a href="/tags/搭建自己的博客/" style="font-size: 10px;">搭建自己的博客</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+						<a href="/tags/iOS工具/" style="font-size: 10px;">iOS工具</a> <a href="/tags/iOS第三方框架/" style="font-size: 10px;">iOS第三方框架</a> <a href="/tags/quartz2D/" style="font-size: 20px;">quartz2D</a> <a href="/tags/事件和响应链/" style="font-size: 10px;">事件和响应链</a> <a href="/tags/搭建自己的博客/" style="font-size: 10px;">搭建自己的博客</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -259,10 +254,35 @@ Quartz 2D能">
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Quartz 2D的学习笔记(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/quartz2D/">quartz2D</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Quartz-2D的学习笔记-一"><a href="#Quartz-2D的学习笔记-一" class="headerlink" title="Quartz 2D的学习笔记(一)"></a>Quartz 2D的学习笔记(一)</h1><p>@(iOS)</p>
-<p>学完要掌握</p>
+        <p>学完要掌握</p>
 <blockquote>
 <ul>
 <li>drawRect:方法的使用</li>
@@ -285,13 +305,14 @@ Quartz 2D能">
 </ul>
 </blockquote>
 <h3 id="Quartz-2D-在开发中的实例"><a href="#Quartz-2D-在开发中的实例" class="headerlink" title="Quartz 2D 在开发中的实例"></a>Quartz 2D 在开发中的实例</h3><ul>
-<li><p>裁剪图片<br><img src="./1460170698917.png" alt="Alt text"></p>
+<li><p>裁剪图片<br><img ="http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)1.png"=""></p>
 </li>
-<li><p>涂鸦画板<br><img src="./1460170810089.png" alt="Alt text"></p>
+<li><p>涂鸦画板</p>
 </li>
 </ul>
+<p><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)2.png"=""></p>
 <ul>
-<li>支付宝手势解锁<br><img src="./1460170858627.png" alt="Alt text"></li>
+<li>支付宝手势解锁<br><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)3.png"=""></li>
 </ul>
 <h3 id="Quartz-2D-在开发中的价值"><a href="#Quartz-2D-在开发中的价值" class="headerlink" title="Quartz 2D 在开发中的价值"></a>Quartz 2D 在开发中的价值</h3><p>iOS 提供的UIKit 框架，里面大部分控件都是由Quartz 2D 绘制出来的：</p>
 <blockquote>
@@ -310,8 +331,8 @@ Quartz 2D能">
 <li>决定绘制的<code>输出目标</code>（绘制到什么地方去？）（输出目标可以是PDF文件、Bitmap或者显示器的窗口上）</li>
 </ul>
 </blockquote>
-<p><img src="./1460171443633.png" alt="Alt text"></p>
-<p>相同的一套绘图序列，指定不同的Graphics Context，就可将相同的图像绘制到不同的目标上：<br><img src="./1460171570778.png" alt="Alt text"></p>
+<p><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)4.png"=""></p>
+<p>相同的一套绘图序列，指定不同的Graphics Context，就可将相同的图像绘制到不同的目标上：<br><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)5.png"=""></p>
 <p><strong>Quartz2D提供了以下几种类型的Graphics Context：</strong><br>&gt;</p>
 <blockquote>
 <ul>
@@ -369,19 +390,19 @@ Quartz 2D能">
 <blockquote>
 <p>提示：一般以CGContextDraw、CGContextStroke、CGContextFill开头的函数，都是用来绘制路径的</p>
 </blockquote>
-<h3 id="图形上下文栈"><a href="#图形上下文栈" class="headerlink" title="图形上下文栈"></a>图形上下文栈</h3><p><strong>问题：</strong><br>如何做到绘制完红色线之后，去掉红色线的属性等一系列设置，恢复到最原来的设置？<br><img src="./1460178049871.png" alt="Alt text"></p>
+<h3 id="图形上下文栈"><a href="#图形上下文栈" class="headerlink" title="图形上下文栈"></a>图形上下文栈</h3><p><strong>问题：</strong><br>如何做到绘制完红色线之后，去掉红色线的属性等一系列设置，恢复到最原来的设置？<br><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)6.png"=""></p>
 <p>DrawRect：方法的代码是这样的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect</span><br><span class="line">&#123;</span><br><span class="line">    // 1.获得上下文</span><br><span class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</span><br><span class="line">    </span><br><span class="line">    // 将ctx拷贝一份放到栈中</span><br><span class="line">    CGContextSaveGState(ctx);</span><br><span class="line">    </span><br><span class="line">    // 设置绘图状态</span><br><span class="line">    CGContextSetLineWidth(ctx, 10);</span><br><span class="line">    [[UIColor redColor] set];</span><br><span class="line">    // 线的两边是否是圆弧</span><br><span class="line">    CGContextSetLineCap(ctx, kCGLineCapRound);</span><br><span class="line">    </span><br><span class="line">    // 第1根线</span><br><span class="line">    CGContextMoveToPoint(ctx, 50, 50);</span><br><span class="line">    CGContextAddLineToPoint(ctx, 120, 190);</span><br><span class="line">    </span><br><span class="line">    CGContextStrokePath(ctx);</span><br><span class="line">    </span><br><span class="line">    // 将栈顶的上下文出栈,替换当前的上下文</span><br><span class="line">    CGContextRestoreGState(ctx);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 第2根线</span><br><span class="line">    CGContextMoveToPoint(ctx, 10, 70);</span><br><span class="line">    CGContextAddLineToPoint(ctx, 220, 290);</span><br><span class="line">    </span><br><span class="line">    CGContextStrokePath(ctx);</span><br><span class="line">//    CGContextDrawPath(ctx, kCGPathStroke);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="./1460179093822.png" alt="Alt text"></p>
-<h3 id="矩阵操作"><a href="#矩阵操作" class="headerlink" title="矩阵操作"></a>矩阵操作</h3><p>通过矩阵操作可以改变里面图形的旋转平移等位置，而不会改变外面的view。<br><img src="./1460181420681.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect</span><br><span class="line">&#123;</span><br><span class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    CGContextSaveGState(ctx);</span><br><span class="line">    </span><br><span class="line">    // 旋转</span><br><span class="line">    CGContextRotateCTM(ctx, M_PI_4 * 0.3);</span><br><span class="line">    //缩放</span><br><span class="line">    CGContextScaleCTM(ctx, 0.5, 0.5);</span><br><span class="line">    //平移</span><br><span class="line">    CGContextTranslateCTM(ctx, 0, 150);</span><br><span class="line">    </span><br><span class="line">    CGContextAddRect(ctx, CGRectMake(10, 10, 50, 50));</span><br><span class="line">    </span><br><span class="line">    CGContextStrokePath(ctx);</span><br><span class="line">    </span><br><span class="line">    CGContextRestoreGState(ctx);</span><br><span class="line">    </span><br><span class="line">    CGContextAddEllipseInRect(ctx, CGRectMake(100, 100, 100, 100));</span><br><span class="line">    CGContextMoveToPoint(ctx, 100, 100);</span><br><span class="line">    CGContextAddLineToPoint(ctx, 200, 250);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 矩阵操作</span><br><span class="line">//    CGContextScaleCTM(ctx, 0.5, 0.5);</span><br><span class="line">    </span><br><span class="line">    CGContextStrokePath(ctx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" 1460179093822.png"=""></p>
+<h3 id="矩阵操作"><a href="#矩阵操作" class="headerlink" title="矩阵操作"></a>矩阵操作</h3><p>通过矩阵操作可以改变里面图形的旋转平移等位置，而不会改变外面的view。<br><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)8.png"=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect</span><br><span class="line">&#123;</span><br><span class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    CGContextSaveGState(ctx);</span><br><span class="line">    </span><br><span class="line">    // 旋转</span><br><span class="line">    CGContextRotateCTM(ctx, M_PI_4 * 0.3);</span><br><span class="line">    //缩放</span><br><span class="line">    CGContextScaleCTM(ctx, 0.5, 0.5);</span><br><span class="line">    //平移</span><br><span class="line">    CGContextTranslateCTM(ctx, 0, 150);</span><br><span class="line">    </span><br><span class="line">    CGContextAddRect(ctx, CGRectMake(10, 10, 50, 50));</span><br><span class="line">    </span><br><span class="line">    CGContextStrokePath(ctx);</span><br><span class="line">    </span><br><span class="line">    CGContextRestoreGState(ctx);</span><br><span class="line">    </span><br><span class="line">    CGContextAddEllipseInRect(ctx, CGRectMake(100, 100, 100, 100));</span><br><span class="line">    CGContextMoveToPoint(ctx, 100, 100);</span><br><span class="line">    CGContextAddLineToPoint(ctx, 200, 250);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 矩阵操作</span><br><span class="line">//    CGContextScaleCTM(ctx, 0.5, 0.5);</span><br><span class="line">    </span><br><span class="line">    CGContextStrokePath(ctx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="裁剪"><a href="#裁剪" class="headerlink" title="裁剪"></a>裁剪</h3><p>加了保留上下文之后，圆以外的就可以显示了。</p>
-<p><img src="./1460181561292.png" alt="Alt text"></p>
+<p><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)9.png"=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect</span><br><span class="line">&#123;</span><br><span class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</span><br><span class="line">    </span><br><span class="line">    //保存上下文（如果不保存的话，超出圆的都被裁剪掉）</span><br><span class="line">    CGContextSaveGState(ctx);</span><br><span class="line">    </span><br><span class="line">    // 0.画圆</span><br><span class="line">    CGContextAddEllipseInRect(ctx, CGRectMake(100, 100, 50, 50));</span><br><span class="line">    // 裁剪（后面设置的都会被裁剪）</span><br><span class="line">    CGContextClip(ctx);</span><br><span class="line">    CGContextFillPath(ctx);</span><br><span class="line">    </span><br><span class="line">    // 1.显示图片</span><br><span class="line">    UIImage *image = [UIImage imageNamed:@&quot;me&quot;];</span><br><span class="line">    [image drawAtPoint:CGPointMake(100, 100)];</span><br><span class="line">    //替换上下文（前面设置的属性都无效，包括裁剪）</span><br><span class="line">    CGContextRestoreGState(ctx);</span><br><span class="line">    </span><br><span class="line">    CGContextAddRect(ctx, CGRectMake(0, 0, 50, 50));</span><br><span class="line">    CGContextFillPath(ctx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="刷帧-重绘"><a href="#刷帧-重绘" class="headerlink" title="刷帧 / 重绘"></a>刷帧 / 重绘</h3><p><strong>drawRect:方法在什么时候被调用？</strong></p>
 <blockquote>
 <ul>
 <li>当view第一次显示到屏幕上时（被加到UIWindow上显示出来）</li>
-<li>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时<br>呵<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>32<br>拉动 下面的 slider 滑块会重绘上面的圆<br><img src="./1460182554935.png" alt="Alt text"></li>
+<li>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时<br>呵<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>32<br>拉动 下面的 slider 滑块会重绘上面的圆<br><img =="" "http:="" 7xsay7.com1.z0.glb.clouddn.com="" quartz%202d%e7%9a%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0(%e4%b8%80)10.png"=""></li>
 </ul>
 </blockquote>
 <p>控制器里面：</p>
@@ -405,7 +426,7 @@ Quartz 2D能">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          (no title)
+          Quartz 2D的学习笔记(二)
         
       </div>
     </a>
@@ -447,7 +468,7 @@ Quartz 2D能">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Quartz 2D的学习笔记(一)/Quartz 2D的学习笔记(一)" data-title="" data-url="http://yoursite.com/2016/04/11/Quartz 2D的学习笔记(一)/Quartz 2D的学习笔记(一)/"></div>
+	<div class="ds-thread" data-thread-key="Quartz 2D的学习笔记(一)/Quartz 2D的学习笔记(一)" data-title="Quartz 2D的学习笔记(一)" data-url="http://yoursite.com/2016/04/11/Quartz 2D的学习笔记(一)/Quartz 2D的学习笔记(一)/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
